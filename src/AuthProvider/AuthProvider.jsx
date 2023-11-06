@@ -16,7 +16,7 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true)
 
     const [user, setUser] = useState(null)
-    
+
     const auth = getAuth(app)
     const createUser = (email, password) => {
         setLoading(true)
@@ -75,7 +75,7 @@ const AuthProvider = ({ children }) => {
 
 
 AuthProvider.propTypes = {
-    children :PropTypes.object
-  };
+    children: PropTypes.object
+};
 
 export default AuthProvider;
