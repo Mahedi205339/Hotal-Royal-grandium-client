@@ -32,7 +32,7 @@ const Banner = () => {
             >
                 <div>
                     <SwiperSlide >
-                        <div id="slide1" className="carousel-item relative   md:h-[600px] max-w-7xl mx-auto h-[80vh] ">
+                        <div id="slide1" className="carousel-item relative   w-full h-[80vh] ">
                             <img src={banner1} className="w-full rounded-xl" />
                             <div className="absolute h-full flex  bottom-0 items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
                                 <div className="text-white md:w-1/2  pl-10  md:pl-14 lg:pl-24 ">
@@ -59,7 +59,7 @@ const Banner = () => {
 
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div id="slide2" className="carousel-item relative  md:h-[600px] max-w-7xl mx-auto h-[80vh] ">
+                        <div id="slide2" className="carousel-item relative   w-full h-[80vh] ">
                             <img src={banner2} className="w-full rounded-xl" />
                             <div className="absolute h-full flex  bottom-0 items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
                                 <div className="text-white md:w-1/2  pl-10  md:pl-14 lg:pl-24 ">
@@ -85,7 +85,7 @@ const Banner = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div id="slide3" className="carousel-item relative   md:h-[600px] max-w-7xl mx-auto h-[80vh] ">
+                        <div id="slide3" className="carousel-item relative    w-full h-[80vh] ">
                             <img src={banner3} className="w-full rounded-xl" />
                             <div className="absolute h-full flex  bottom-0 items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
                                 <div className="text-white md:w-1/2  pl-10  md:pl-14 lg:pl-24 ">
@@ -111,7 +111,7 @@ const Banner = () => {
                         </div>
                     </SwiperSlide>
                     <SwiperSlide>
-                        <div id="slide4" className="carousel-item relative  md:h-[600px] max-w-7xl mx-auto h-[80vh] ">
+                        <div id="slide4" className="carousel-item relative   w-full h-[80vh] ">
                             <img src={banner4} className="w-full rounded-xl" />
                             <div className="absolute h-full flex  bottom-0 items-center bg-gradient-to-r from-[#151515] to-[rgba(21,21,21,0)]">
                                 <div className="text-white md:w-1/2  pl-10  md:pl-14 lg:pl-24 ">
