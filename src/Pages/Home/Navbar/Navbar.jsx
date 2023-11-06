@@ -68,7 +68,7 @@ const Navbar = () => {
 
                             </ul>
                             <div className="flex items-center gap-2 ">
-                                <img className="w-10 h-10 md:h-14 rounded-full" src={user?.photoURL ? user.photoURL : null} alt="" />
+                                <img className="w-10 h-10 md:h-14 rounded-full" src={user?.photoURL } alt="" />
                                 <p className="mr-3">{user?.displayName}</p>
                             </div>
                         </div>
@@ -85,7 +85,7 @@ const Navbar = () => {
                 <ul className="menu p-4 w-80 min-h-full bg-base-200">
                     {/* Sidebar content here */}
                     <div className="flex items-center gap-2">
-                        <img className="w-10 h-10 md:h-14 rounded-full" src={user?.photoURL ? user.photoURL : null} alt="" />
+                        <img className="w-10 h-10 md:h-14 rounded-full" src={user?.photoURL} alt="" />
                         <p className="mr-3">{user?.displayName}</p>
                     </div>
 

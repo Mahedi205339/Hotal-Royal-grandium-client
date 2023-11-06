@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 // import Swal from 'sweetalert2'
 const Register = () => {
     const { createUser, googleLogin } = useContext(AuthContext);
@@ -11,39 +12,39 @@ const Register = () => {
     const location = useLocation();
     const navigate = useNavigate()
 
-    const handleRegister = e => {
+    const handleRegister = async (e) => {
         e.preventDefault();
-        const form = new FormData(e.currentTarget);
-        const email = form.get('email');
-        const password = form.get('password');
-        const name = form.get('name')
-        console.log(email, name, password)
-        if (!/[A-Z].{8,}$/.test(password)) {
-            setError('Your password should have contain at least 8 character  Capital letter ')
-            return
+        const toastId = toast.loading('logging in...')
+        try {
+            const form = new FormData(e.currentTarget);
+            const email = form.get('email');
+            const password = form.get('password');
+            const name = form.get('name')
+            console.log(email, name, password)
+            if (!/[A-Z].{8,}$/.test(password)) {
+                setError('Your password should have contain at least 8 character  Capital letter ')
+                return
+            }
+            setError('');
+            setConfirmMessage('')
+
+            await createUser(email, password)
+                .then(result => {
+                    console.log(result.user)
+
+                    toast.success('logged in', { id: toastId })
+                    navigate(location?.state ? location.state : '/')
+                })
+
         }
-        setError('');
-        setConfirmMessage('')
-
-        createUser(email, password)
-            .then(result => {
-                console.log(result.user)
-
-                // Swal.fire({
-                //     position: 'top-end',
-                //     icon: 'success',
-                //     title: 'Successfully Registered',
-                //     showConfirmButton: false,
-                //     timer: 1500
-                // })
-                navigate(location?.state ? location.state : '/')
-                setConfirmMessage("User successfully registered")
-            })
-            .catch(error => {
-                console.error(error);
-                setError(error.message)
-            })
+        catch (error) {
+            toast.error(error.message)
+        }
     }
+
+
+
+
 
 
 
@@ -113,6 +114,7 @@ const Register = () => {
         </div>
 
     );
-};
+}
+
 
 export default Register;

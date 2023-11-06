@@ -2,8 +2,8 @@ import { Link, useLocation, useNavigate, } from "react-router-dom";
 import { useContext, useState } from "react";
 
 import { FcGoogle } from 'react-icons/fc'
-// import Swal from 'sweetalert2'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import toast from "react-hot-toast";
 const Login = () => {
 
     const { signIn, googleLogin } = useContext(AuthContext)
@@ -13,37 +13,33 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const handleLogin = e => {
+    const handleLogin = async (e) => {
         e.preventDefault();
-        const form = new FormData(e.currentTarget);
-        const email = form.get('email');
-        const password = form.get('password');
-        if (!/[A-Z].{8,}$/.test(password)) {
-            setError('Your password should have contain at least 8 character contained Capital letter ')
-            return
+        const toastId = toast.loading('logging in...')
+        try {
+
+            const form = new FormData(e.currentTarget);
+            const email = form.get('email');
+            const password = form.get('password');
+            if (!/[A-Z].{8,}$/.test(password)) {
+                setError('Your password should have contain at least 8 character contained Capital letter ')
+                return
+            }
+            setConfirmMessage("")
+            setError("")
+            await signIn(email, password)
+                .then(result => {
+                    result.user
+                    toast.success('logged in', { id: toastId })
+
+                    navigate(location?.state ? location.state : '/')
+                })
+
+
         }
-        setConfirmMessage("")
-        setError("")
-        signIn(email, password)
-            .then(result => {
-                result.user
-
-
-                // Swal.fire({
-                //     position: 'top-end',
-                //     icon: 'success',
-                //     title: 'Successfully login',
-                //     showConfirmButton: false,
-                //     timer: 1500
-                // })
-
-                navigate(location?.state ? location.state : '/')
-
-                setConfirmMessage("Email successfully logged in")
-            })
-            .catch(error => {
-                setError(error.message)
-            })
+        catch (error) {
+            console.log(error)
+        }
     }
 
 
