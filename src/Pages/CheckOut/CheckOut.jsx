@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 const CheckOut = () => {
     const service = useLoaderData();
@@ -26,15 +27,16 @@ const CheckOut = () => {
         }
         console.log(booking)
 
-        fetch('', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(booking)
+        // fetch('http://localhost:5000/bookings', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(booking)
 
-        })
-            .then(res => res.json())
+        // })
+        axios.post("http://localhost:5000/bookings" ,booking)
+             .then(res => res.data)
             .then(data => {
                 if (data.insertedId) {
                     Swal.fire({
@@ -51,7 +53,7 @@ const CheckOut = () => {
         <h2 className="text-center font-bold text-xl">Book Service : {name}</h2>
 
 
-        <form onSubmit={handleBookService} className=" w-3/4 mx-auto ">
+        <form onSubmit={handleBookService} className=" w-3/4 mx-auto h-auto lg:h-[70vh]">
             <div className="grid grid-cols-1 
         md:grid-cols-2 gap-5">
                 <div className="form-control">
@@ -84,7 +86,7 @@ const CheckOut = () => {
 
             <div className="w-1/2 mx-auto my-6">
 
-                <input className="bg-orange-500 w-full text-white font-semibold py-2 rounded-2xl hover:text-orange-600 hover:bg-orange-200" type="submit" value="Order Confirm" />
+                <input className="bg-orange-500 w-full text-white font-semibold py-2 rounded-2xl hover:text-orange-600 hover:bg-orange-200" type="submit" value="Bookings Confirm" />
 
             </div>
         </form>
