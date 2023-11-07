@@ -1,74 +1,75 @@
 [
     {
-        "id": 1,
         "name": "Cozy Single Room",
         "price_per_night": 75,
         "room_size": "250 sq. ft",
         "availability": "Available",
-        "image": "https://i.ibb.co/XkbjSjf/suite1.jpg"
+        "image": "https://i.ibb.co/XkbjSjf/suite1.jpg",
+        "room_description": "Indulge in luxury with our exquisite suite featuring a separate living area and stunning views."
+
     },
     {
-        "id": 2,
         "name": "Standard Double Room",
         "price_per_night": 120,
         "room_size": "350 sq. ft",
         "availability": "Available",
-        "image": "https://i.ibb.co/1LxCdwJ/suite2.jpg"
+        "image": "https://i.ibb.co/1LxCdwJ/suite2.jpg",
+        "room_description": "Indulge in luxury with our exquisite suite featuring a separate living area and stunning views."
     },
     {
-        "id": 3,
         "name": "Luxury Suite",
         "price_per_night": 250,
         "room_size": "500 sq. ft",
         "availability": "Available",
-        "image": "https://i.ibb.co/Sc5JSTW/suite3.jpg"
+        "image": "https://i.ibb.co/Sc5JSTW/suite3.jpg",
+        "room_description": "Indulge in luxury with our exquisite suite featuring a separate living area and stunning views."
     },
     {
-        "id": 4,
         "name": "Economy Single Room",
         "price_per_night": 60,
         "room_size": "200 sq. ft",
         "availability": "Booked",
-        "image": "https://i.ibb.co/vL9DzTs/suite4.jpg"
+        "image": "https://i.ibb.co/vL9DzTs/suite4.jpg",
+        "room_description": "Indulge in luxury with our exquisite suite featuring a separate living area and stunning views."
     },
     {
-        "id": 5,
         "name": "Family Suite",
         "price_per_night": 300,
         "room_size": "600 sq. ft",
         "availability": "Available",
-        "image": "https://i.ibb.co/N7wLbn1/suite5.jpg"
+        "image": "https://i.ibb.co/N7wLbn1/suite5.jpg",
+        "room_description": "Indulge in luxury with our exquisite suite featuring a separate living area and stunning views."
     },
     {
-        "id": 6,
         "name": "Deluxe Double Room",
         "price_per_night": 150,
         "room_size": "400 sq. ft",
         "availability": "Available",
-        "image": "https://i.ibb.co/4K7yGCy/suite6.jpg"
+        "image": "https://i.ibb.co/4K7yGCy/suite6.jpg",
+        "room_description": "Indulge in luxury with our exquisite suite featuring a separate living area and stunning views."
     },
     {
-        "id": 7,
         "name": "Superior Single Room",
         "price_per_night": 85,
         "room_size": "275 sq. ft",
         "availability": "Available",
-        "image": "https://i.ibb.co/m6w1Ctr/suite7.jpg"
+        "image": "https://i.ibb.co/m6w1Ctr/suite7.jpg",
+        "room_description": "Indulge in luxury with our exquisite suite featuring a separate living area and stunning views."
     },
     {
-        "id": 8,
-        "name": "https://i.ibb.co/VwSS38Q/suite8.jpg",
+        "name": "Deluxe Double Room",
         "price_per_night": 350,
         "room_size": "700 sq. ft",
         "availability": "Available",
-        "image": "room8.jpg"
+        "image": "https://i.ibb.co/VwSS38Q/suite8.jpg",
+        "room_description": "Indulge in luxury with our exquisite suite featuring a separate living area and stunning views."
     },
     {
-        "id": 9,
         "name": "https://i.ibb.co/wCKmw8z/suite9.jpg",
         "price_per_night": 350,
         "room_size": "700 sq. ft",
         "availability": "Available",
-        "image": "room8.jpg"
+        "image": "room8.jpg",
+        "room_description": "Indulge in luxury with our exquisite suite featuring a separate living area and stunning views."
     }
 ]
