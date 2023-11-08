@@ -7,6 +7,7 @@ import Register from "../Pages/Registration/Registration";
 import CheckOut from "../Pages/CheckOut/CheckOut";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 
 const route = createBrowserRouter([
     {
@@ -36,6 +37,11 @@ const route = createBrowserRouter([
                 loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
 
             },
+            {
+                path: '/details/:id',
+                element: <PrivateRoute><ServiceDetails></ServiceDetails> </PrivateRoute>,
+                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+            }
            
        ],
        errorElement:<ErrorPage></ErrorPage>
