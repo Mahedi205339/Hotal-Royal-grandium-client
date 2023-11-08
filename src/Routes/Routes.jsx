@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Registration/Registration";
 import CheckOut from "../Pages/CheckOut/CheckOut";
 import PrivateRoute from "./PrivateRoute";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const route = createBrowserRouter([
     {
@@ -36,7 +37,8 @@ const route = createBrowserRouter([
 
             },
            
-        ]
+       ],
+       errorElement:<ErrorPage></ErrorPage>
     }
 ])
 
