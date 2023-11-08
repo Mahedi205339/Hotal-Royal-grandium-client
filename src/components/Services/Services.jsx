@@ -60,7 +60,7 @@ const Services = () => {
                         <span className="label-text">Category</span>
                     </label>
                     <select className="input input-bordered" onChange={(e) => setCategory(e.target.value)}>
-                        <option disabled >
+                        <option disabled  >
                             Chose one
                         </option>
                         {categories.map((item) => (

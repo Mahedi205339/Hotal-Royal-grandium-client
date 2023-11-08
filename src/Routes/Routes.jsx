@@ -8,6 +8,7 @@ import CheckOut from "../Pages/CheckOut/CheckOut";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
+import BookService from "../Pages/BookService/BookService";
 
 const route = createBrowserRouter([
     {
@@ -32,19 +33,25 @@ const route = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path:'checkout/:id',
-                element:<PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                path: 'checkout/:id',
+                element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
 
             },
             {
                 path: '/details/:id',
                 element: <PrivateRoute><ServiceDetails></ServiceDetails> </PrivateRoute>,
-                loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+            },
+            {
+                path: '/bookings',
+                element: <PrivateRoute><BookService></BookService></PrivateRoute>
+                
             }
-           
-       ],
-       errorElement:<ErrorPage></ErrorPage>
+
+
+        ],
+        errorElement: <ErrorPage></ErrorPage>
     }
 ])
 
