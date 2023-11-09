@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import axios from "axios";
 import BookingItem from "../BookedService/BookingItem";
 import { useQuery } from "react-query";
+import Swal from "sweetalert2";
 // import { useQuery } from "react-query";
 
 const BookService = () => {
@@ -38,49 +39,48 @@ const BookService = () => {
 
 
     const handleDelete = id => {
-        const proceed = confirm('Are You sure you delete');
-        if (proceed) {
-            fetch(``, {
-                method: 'DELETE'
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data)
-                    if (data.deletedCount > 0) {
-                        alert('deleted successfully')
-                        const remaining = bookings.filter(booking => booking._id !== id);
-                        setBookings(remaining)
-                    }
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+
+
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5000/bookings/${id}`, {
+                    method: 'DELETE'
                 })
-        }
-    }
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            const remaining = bookings.filter(booking => booking._id !== id)
+                            setBookings(remaining)
+                        }
+                    })
 
 
-    const handleConfirm = id => {
-        fetch(``, {
-            method: 'PATCH',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify({ status: 'confirm' })
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount > 0) {
-                    //update state
-                    const remaining = bookings.filter(booking => booking._id !== id)
-                    const updated = bookings.find(booking => booking._id === id);
-                    updated.status = 'confirm'
-                    const newBookings = [updated, ...remaining];
-                    setBookings(newBookings)
-
-                }
-            })
+            }
+        });
 
 
 
     }
+
+
+
+
+    
 
     if (bookings.length == 0) {
         return <div className="h-[70vh] flex justify-center items-center text-2xl md:text-4xl lg:text-6xl font-extrabold "> No Bookings</div>
@@ -90,36 +90,26 @@ const BookService = () => {
 
     return (
         <div className="min-h-[70vh]">
-            <h2 className="text-4xl">Your Bookings:{bookings.length} </h2>
-            <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>
 
-                            </th>
-                            <th>Service Name </th>
-                            <th>Email</th>
-                            <th>Price</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            bookings.map(booking => <BookingItem booking={booking}
-                                handleDelete={handleDelete}
-                                handleConfirm={handleConfirm}
-                                key={booking._id}></BookingItem>)
-                        }
-
-                    </tbody>
-
-                </table>
+            <div>
+                <h2 className="text-center text-xl md:text-3xl lg:text-5xl font-extrabold">Your Bookings : {bookings.length}</h2>
             </div>
+
+            <div className="my-4">
+                {
+                    bookings.map(booking => <BookingItem booking={booking}
+                        handleDelete={handleDelete}
+                        handleConfirm={handleConfirm}
+                        key={booking._id}></BookingItem>)
+                }
+            </div>
+
 
         </div>
     );
-};
+}
+
 
 export default BookService;
+
+
