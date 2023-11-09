@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 import BookService from "../Pages/BookService/BookService";
+import UpdateBookings from "../components/UpdateBookings/UpdateBookings";
 
 const route = createBrowserRouter([
     {
@@ -46,8 +47,14 @@ const route = createBrowserRouter([
             {
                 path: '/bookings',
                 element: <PrivateRoute><BookService></BookService></PrivateRoute>
-                
+
+            },
+            {
+                path: '/updateBookings/:id',
+                element: <PrivateRoute><UpdateBookings></UpdateBookings> </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
             }
+
 
 
         ],

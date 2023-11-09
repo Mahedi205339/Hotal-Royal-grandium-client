@@ -22,7 +22,6 @@ const CheckOut = () => {
             customerName: name,
             email,
             date,
-            service_id: _id,
             service: name,
             price: price_per_night,
             image ,

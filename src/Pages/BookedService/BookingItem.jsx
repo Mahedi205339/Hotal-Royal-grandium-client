@@ -1,6 +1,7 @@
+import { Link } from "react-router-dom";
 
 
-const BookingItem = ({ booking, handleDelete, handleConfirm }) => {
+const BookingItem = ({ booking, handleCancel }) => {
 
     const { image, date, customerName, price, _id, category
     } = booking;
@@ -17,10 +18,12 @@ const BookingItem = ({ booking, handleDelete, handleConfirm }) => {
                 <p>Cost: {price}</p>
                 <p>{date}</p>
             </div>
-            <div className="flex flex-row lg:flex-col text-white gap-3">
-                <button onClick={() => handleDelete(_id)} className="btn bg-red-600 hover:bg-red-800 ">Watch</button>
-                <button className="btn btn-primary">Watch</button>
-                <button className="btn btn-primary">Watch</button>
+            <div className="flex flex-row lg:flex-col  gap-3">
+                <button onClick={() => handleCancel(_id)} className="btn bg-red-600 hover:bg-red-800 text-white">Cancel</button>
+                <div >
+                    <Link to={`/updateBookings/${_id}`}><button className="btn bg-yellow-700 hover:bg-yellow-600 text-white">Change Date</button> </Link>
+                </div>
+                <button className="btn  bg-indigo-600 hover:bg-indigo-800 text-white">FeedBack</button>
             </div>
         </div>
     );

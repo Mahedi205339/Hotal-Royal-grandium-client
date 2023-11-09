@@ -10,10 +10,10 @@ const PrivateRoute = ({ children }) => {
     if (loading) {
         return <div className="progress w-full"></div>
     }
-    if (!user?.email) {
-        return <Navigate to="/login"></Navigate>
+    if (user?.email) {
+        return children
     }
-    return children;
+    return <Navigate state={location.pathname} to="/login"></Navigate>
 };
 
 export default PrivateRoute;

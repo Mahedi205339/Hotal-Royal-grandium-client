@@ -38,7 +38,7 @@ const BookService = () => {
     }
 
 
-    const handleDelete = id => {
+    const handleCancel = id => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -78,10 +78,6 @@ const BookService = () => {
     }
 
 
-
-
-    
-
     if (bookings.length == 0) {
         return <div className="h-[70vh] flex justify-center items-center text-2xl md:text-4xl lg:text-6xl font-extrabold "> No Bookings</div>
     }
@@ -98,8 +94,7 @@ const BookService = () => {
             <div className="my-4">
                 {
                     bookings.map(booking => <BookingItem booking={booking}
-                        handleDelete={handleDelete}
-                        handleConfirm={handleConfirm}
+                        handleCancel={handleCancel}
                         key={booking._id}></BookingItem>)
                 }
             </div>
