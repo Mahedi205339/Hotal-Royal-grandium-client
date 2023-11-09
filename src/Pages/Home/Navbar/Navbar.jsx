@@ -105,11 +105,6 @@ const Navbar = () => {
 
 
                     {navLink}
-                    <li>
-                        {
-                            user ? <button onClick={handleLogOut} className=" font-semibold px-2 py-1 lg:px-4 lg:py-2 rounded  border-collapse">Log out</button> : null
-                        }
-                    </li>
                 </ul>
 
             </div >

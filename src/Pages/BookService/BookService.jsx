@@ -9,12 +9,11 @@ import Swal from "sweetalert2";
 const BookService = () => {
     const { user } = useContext(AuthContext)
     const [bookings, setBookings] = useState([]);
-    console.log(user.email)
 
 
 
     const getBookings = async () => {
-        const response = axios.get(`http://localhost:5000/bookings?email=${user.email}`)
+        const response = axios.get(`http://localhost:5000/bookings?email=${user.email}`, { withCredentials: true })
             .then(result => {
                 setBookings(result.data)
             })

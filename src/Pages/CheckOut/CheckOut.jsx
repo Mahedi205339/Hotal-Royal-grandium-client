@@ -7,7 +7,7 @@ import axios from "axios";
 const CheckOut = () => {
     const service = useLoaderData();
     console.log(service)
-    const { name, price_per_night, image, _id, category
+    const { name, price_per_night, image, category
     } = service
     const { user } = useContext(AuthContext)
 
