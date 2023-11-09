@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from 'react-icons/fc'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 // import Swal from 'sweetalert2'
 const Register = () => {
     const { createUser, googleLogin } = useContext(AuthContext);
@@ -51,6 +52,12 @@ const Register = () => {
 
     return (
         <div>
+
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Register</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="hero-content flex-col  w-full mx-auto">
 
                 {
@@ -88,7 +95,7 @@ const Register = () => {
                             </label>
                             <input type="password"
                                 name="password"
-                                placeholder="password" className="input input-bordeyellow text-yellow-700" required/>
+                                placeholder="password" className="input input-bordeyellow text-yellow-700" required />
                             <label className="label">
                                 <a href="#" className="label-text-alt link link-hover text-yellow-700 font-semibold">Forgot password?</a>
                             </label>

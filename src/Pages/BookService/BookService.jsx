@@ -4,6 +4,7 @@ import axios from "axios";
 import BookingItem from "../BookedService/BookingItem";
 import { useQuery } from "react-query";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 // import { useQuery } from "react-query";
 
 const BookService = () => {
@@ -13,7 +14,7 @@ const BookService = () => {
 
 
     const getBookings = async () => {
-        const response = axios.get(`http://localhost:5000/bookings?email=${user.email}`, { withCredentials: true })
+        const response = axios.get(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/bookings?email=${user.email}`, { withCredentials: true })
             .then(result => {
                 setBookings(result.data)
             })
@@ -51,7 +52,7 @@ const BookService = () => {
 
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/bookings/${id}`, {
+                fetch(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -85,7 +86,11 @@ const BookService = () => {
 
     return (
         <div className="min-h-[70vh]">
-
+                <Helmet>
+                <meta charSet="utf-8" />
+                <title>Bookings</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div>
                 <h2 className="text-center text-xl md:text-3xl lg:text-5xl font-extrabold">Your Bookings : {bookings.length}</h2>
             </div>

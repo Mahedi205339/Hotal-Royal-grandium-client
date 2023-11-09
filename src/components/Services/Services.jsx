@@ -16,7 +16,7 @@ const Services = () => {
     const [category, setCategory] = useState('');
 
     const getServices = async () => {
-        const response = await axios.get(`http://localhost:5000/services?sortField=price_per_night&sortOrder=${price}&category=${category}`, services)
+        const response = await axios.get(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/services?sortField=price_per_night&sortOrder=${price}&category=${category}`, services)
             .then(result => {
                 setServices(result)
             })

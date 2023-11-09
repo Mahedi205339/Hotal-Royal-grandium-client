@@ -36,13 +36,13 @@ const route = createBrowserRouter([
             {
                 path: 'checkout/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/services/${params.id}`)
 
             },
             {
                 path: '/details/:id',
                 element: <PrivateRoute><ServiceDetails></ServiceDetails> </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/services/${params.id}`)
             },
             {
                 path: '/bookings',
@@ -52,7 +52,7 @@ const route = createBrowserRouter([
             {
                 path: '/updateBookings/:id',
                 element: <PrivateRoute><UpdateBookings></UpdateBookings> </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/bookings/${params.id}`)
             }
 
 

@@ -4,6 +4,7 @@ import { FcGoogle } from 'react-icons/fc'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 const Login = () => {
 
     const { signIn, googleLogin } = useContext(AuthContext)
@@ -33,7 +34,7 @@ const Login = () => {
                     console.log(loggedUser)
                     const user = { email };
 
-                    axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    axios.post('https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/jwt', user, { withCredentials: true })
                         .then(res => {
                             console.log(res.data)
                         })
@@ -56,6 +57,11 @@ const Login = () => {
 
     return (
         <div>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Login</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="hero-content flex-col  w-full mx-auto">
                 {
                     error && < p className="text-yellow-600 font-bold">{error}</p>

@@ -1,9 +1,15 @@
+import { Helmet } from 'react-helmet';
 import img from '../../assets/cover2.jpg'
 import Testimonials from '../../components/Testimonials/Testimonials';
 const AboutUs = () => {
     return (
         <div>
             <div className='flex flex-col lg:flex-row font-extrabold my-10 max-w-7xl mx-auto'>
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>About</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
                 <div className='flex-1'>
                     <h3 className="text-xl text-yellow-600">YOUR PERFECT ESCAPE</h3>
                     <h3 className="text-xl md:text-3xl lg:text-5xl text-yellow-600">About Page</h3>

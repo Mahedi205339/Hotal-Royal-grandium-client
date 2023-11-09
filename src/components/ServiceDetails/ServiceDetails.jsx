@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { FaRegComment } from 'react-icons/fa';
+import { Helmet } from "react-helmet";
 
 
 const ServiceDetails = () => {
@@ -8,6 +9,11 @@ const ServiceDetails = () => {
 
     return (
         <div className="max-w-7xl mx-auto flex flex-col  lg:grid lg:grid-cols-5 md:gap-10">
+            <Helmet>
+                <meta charSet="utf-8" />
+                <title>Bookings Details</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
             <div className="col-span-3">
                 <div className="card card-compact  bg-base-100">
                     <figure><img className="w-96 md:w-[600px]" src={image} alt="Shoes" /></figure>
