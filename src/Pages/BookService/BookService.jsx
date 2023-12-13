@@ -14,7 +14,7 @@ const BookService = () => {
 
 
     const getBookings = async () => {
-        const response = axios.get(`http://localhost:5000/bookings?email=${user.email}`,)
+        const response = axios.get(`https://hotel-royal-grandium-server-8gp5e4fi5-mahedis-projects.vercel.app/bookings?email=${user.email}`,)
             .then(result => {
                 setBookings(result.data)
             })
@@ -46,13 +46,13 @@ const BookService = () => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, cancel it!"
         }).then((result) => {
 
 
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/${id}`, {
+                fetch(`https://hotel-royal-grandium-server-8gp5e4fi5-mahedis-projects.vercel.app/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -60,8 +60,8 @@ const BookService = () => {
                         console.log(data)
                         if (data.deletedCount > 0) {
                             Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                title: "canceled!",
+                                text: "Your Booking Canceled.",
                                 icon: "success"
                             });
                             const remaining = bookings.filter(booking => booking._id !== id)

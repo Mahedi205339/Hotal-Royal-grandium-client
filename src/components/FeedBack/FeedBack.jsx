@@ -19,13 +19,13 @@ const FeedBack = () => {
             roomId: booking._id
         }
         // console.log(data);
-        await axios.post('http://localhost:5000/feedback', data)
+        await axios.post('https://hotel-royal-grandium-server-8gp5e4fi5-mahedis-projects.vercel.app/feedback', data)
             .then(data => {
                 console.log(data)
                 if (data.data.insertedId) {
                     Swal.fire({
                         title: 'success!',
-                        text: 'Updated',
+                        text: 'Thank you for your feedback',
                         icon: 'success',
                     })
                 }

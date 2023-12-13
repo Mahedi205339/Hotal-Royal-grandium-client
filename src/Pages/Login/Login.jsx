@@ -34,7 +34,7 @@ const Login = () => {
                     console.log(loggedUser)
                     // const user = { email };
 
-                    // axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    // axios.post('https://hotel-royal-grandium-server-8gp5e4fi5-mahedis-projects.vercel.app/jwt', user, { withCredentials: true })
                     //     .then(res => {
                     //         console.log(res.data)
                     //     })

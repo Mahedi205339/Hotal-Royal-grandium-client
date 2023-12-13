@@ -16,7 +16,7 @@ const UpdateBookings = () => {
         const date = e.target.date.value
         const updatedBookings = { date }
 
-        fetch(`http://localhost:5000/bookings/${_id}`, {
+        fetch(`https://hotel-royal-grandium-server-8gp5e4fi5-mahedis-projects.vercel.app/bookings/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

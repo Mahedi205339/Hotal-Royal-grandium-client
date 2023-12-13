@@ -4,7 +4,7 @@ import Testimonials from '../../components/Testimonials/Testimonials';
 const AboutUs = () => {
     return (
         <div>
-            <div className='flex flex-col lg:flex-row font-extrabold my-10 max-w-7xl mx-auto'>
+            <div className='flex flex-col lg:flex-row font-bold my-10 max-w-7xl mx-auto'>
             <Helmet>
                 <meta charSet="utf-8" />
                 <title>About</title>
@@ -12,7 +12,7 @@ const AboutUs = () => {
             </Helmet>
                 <div className='flex-1'>
                     <h3 className="text-xl text-yellow-600">YOUR PERFECT ESCAPE</h3>
-                    <h3 className="text-xl md:text-3xl lg:text-5xl text-yellow-600">About Page</h3>
+                    <h3 className="text-xl md:text-3xl lg:text-5xl text-yellow-600 my-7">About Page</h3>
                     <p>
                         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque, dignissimos atque minus libero eligendi iste ipsum praesentium eveniet deserunt! Eius provident placeat voluptatem non, commodi ea nemo hic eaque ipsa?
                     </p>
@@ -25,7 +25,7 @@ const AboutUs = () => {
                 </div>
             </div>
 
-            <div className='flex flex-col lg:flex-row font-extrabold my-10 max-w-7xl mx-auto gap-3 md:gap-10 lg:gap-14'>
+            <div className='flex flex-col lg:flex-row font-bold my-10 max-w-7xl mx-auto gap-3 md:gap-10 lg:gap-14'>
                 <div className='flex-1'>
                     <h3 className="text-xl text-yellow-600 my-6 ">ABOUT ROYAL GRANDIUM</h3>
                     <h3 className="text-xl md:text-3xl lg:text-5xl text-yellow-600">Our Philosophy</h3>
@@ -46,7 +46,10 @@ const AboutUs = () => {
                     </p>
                 </div>
             </div>
-            <Testimonials></Testimonials>
+            <div className='my-7'>
+                 <Testimonials></Testimonials>
+            </div>
+           
         </div>
 
 
