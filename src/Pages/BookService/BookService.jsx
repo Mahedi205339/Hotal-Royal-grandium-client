@@ -14,7 +14,7 @@ const BookService = () => {
 
 
     const getBookings = async () => {
-        const response = axios.get(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/bookings?email=${user.email}`, { withCredentials: true })
+        const response = axios.get(`http://localhost:5000/bookings?email=${user.email}`,)
             .then(result => {
                 setBookings(result.data)
             })
@@ -52,7 +52,7 @@ const BookService = () => {
 
             if (result.isConfirmed) {
 
-                fetch(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/${id}`, {
+                fetch(`http://localhost:5000/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

@@ -23,7 +23,8 @@ const BookingItem = ({ booking, handleCancel }) => {
                 <div >
                     <Link to={`/updateBookings/${_id}`}><button className="btn bg-yellow-700 hover:bg-yellow-600 text-white">Change Date</button> </Link>
                 </div>
-                <button className="btn  bg-indigo-600 hover:bg-indigoP-800 text-white">FeedBack</button>
+                <Link to={`/feedbackBookings/${_id}`}>
+                    <button className="btn bg-indigo-600 hover:bg-indigoP-800 text-white">FeedBack</button></Link>
             </div>
         </div>
     );

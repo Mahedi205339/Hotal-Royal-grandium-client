@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { FcGoogle } from 'react-icons/fc'
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import toast from "react-hot-toast";
-import axios from "axios";
+// import axios from "axios";
 import { Helmet } from "react-helmet";
 const Login = () => {
 
@@ -32,12 +32,12 @@ const Login = () => {
                 .then(result => {
                     const loggedUser = result.user
                     console.log(loggedUser)
-                    const user = { email };
+                    // const user = { email };
 
-                    axios.post('https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/jwt', user, { withCredentials: true })
-                        .then(res => {
-                            console.log(res.data)
-                        })
+                    // axios.post('http://localhost:5000/jwt', user, { withCredentials: true })
+                    //     .then(res => {
+                    //         console.log(res.data)
+                    //     })
 
                     toast.success('logged in', { id: toastId })
 

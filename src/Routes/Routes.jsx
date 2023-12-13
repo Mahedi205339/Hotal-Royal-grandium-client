@@ -10,6 +10,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import ServiceDetails from "../components/ServiceDetails/ServiceDetails";
 import BookService from "../Pages/BookService/BookService";
 import UpdateBookings from "../components/UpdateBookings/UpdateBookings";
+import FeedBack from "../components/FeedBack/FeedBack";
 
 const route = createBrowserRouter([
     {
@@ -36,13 +37,13 @@ const route = createBrowserRouter([
             {
                 path: 'checkout/:id',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>,
-                loader: ({ params }) => fetch(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/services/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
 
             },
             {
                 path: '/details/:id',
                 element: <PrivateRoute><ServiceDetails></ServiceDetails> </PrivateRoute>,
-                loader: ({ params }) => fetch(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/services/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
             },
             {
                 path: '/bookings',
@@ -52,7 +53,13 @@ const route = createBrowserRouter([
             {
                 path: '/updateBookings/:id',
                 element: <PrivateRoute><UpdateBookings></UpdateBookings> </PrivateRoute>,
-                loader: ({ params }) => fetch(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/bookings/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+            }
+            ,
+            {
+                path: '/feedbackBookings/:id',
+                element: <PrivateRoute><FeedBack></FeedBack> </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
             }
 
 

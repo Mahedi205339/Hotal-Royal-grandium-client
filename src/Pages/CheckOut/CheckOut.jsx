@@ -30,7 +30,7 @@ const CheckOut = () => {
         }
         console.log(booking)
 
-        // fetch('https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/bookings', {
+        // fetch('http://localhost:5000/bookings', {
         //     method: 'POST',
         //     headers: {
         //         'content-type': 'application/json'
@@ -38,7 +38,7 @@ const CheckOut = () => {
         //     body: JSON.stringify(booking)
 
         // })
-        axios.post("https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/bookings", booking)
+        axios.post("http://localhost:5000/bookings", booking)
             .then(res => res.data)
             .then(data => {
                 if (data.insertedId) {

@@ -12,14 +12,11 @@ const UpdateBookings = () => {
 
 
     const handleUpdateBookings = e => {
-
         e.preventDefault();
-
-
         const date = e.target.date.value
         const updatedBookings = { date }
 
-        fetch(`https://hotel-royal-grandium-server-5t1nlon2f-mahedis-projects.vercel.app/bookings/${_id}`, {
+        fetch(`http://localhost:5000/bookings/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -37,7 +34,6 @@ const UpdateBookings = () => {
                 })
             }
         })
-
     }
 
     return (
